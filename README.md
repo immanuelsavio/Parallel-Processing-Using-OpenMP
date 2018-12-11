@@ -4,7 +4,7 @@
 Parallel Processing is the method of programming using the smallest unit of a program called a thread. Using threads while programming makes the program faster during execution and also easy to identify errors.
 
 ### OpenMP
-OpenMP© is a library by Intel which uses the power of the intel processors to process any program parallely. I have written the program in C Language as any program written in C language is atleast 40% faster during execution than the same program written in any other programming language.
+[OpenMP©](https://www.openmp.org/) is a library by Intel which uses the power of the intel processors to process any program parallely. I have written the program in C Language as any program written in C language is atleast 40% faster during execution than the same program written in any other programming language.
 
 I have used some parallel programs to find the extent of parallelization of my computer which has a Intel Core i5 6200u processor.
 

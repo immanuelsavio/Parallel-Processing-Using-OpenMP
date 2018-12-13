@@ -72,4 +72,34 @@ int main(int argc, char* argv[])
 			printf("\nNumber of threads: %2d    Time: %.9f s", omp_get_max_threads(), time);
 			fprintf(file, ";%.9f", time);
 		}
+#endif#if 0
+		fprintf(file, "\nFFT:");
+		printf("\n\nFFT:");
+		for (numOfThreads = 1; numOfThreads <= 2*omp_get_num_procs(); numOfThreads++) {
+			omp_set_num_threads(numOfThreads);
+			time = DBL_MAX;
+			for (n = 0; n < REPEAT; n++) {
+				startMeasure();
+				fft(in, out, size);
+				temp_time = getMeasuredTime();
+				if (temp_time < time) {
+					time = temp_time;
+				}
+			}
+			printf("\nNumber of threads: %2d    Time: %.9f s", omp_get_max_threads(), time);
+			fprintf(file, ";%.9f", time);
+		}
 #endif
+	} while (size < MAX_SIZE);
+
+	fclose(file);
+
+	printf("\n\nBenchmark finished. Press ENTER to exit.");
+	getchar();
+#endif
+
+	return 0;
+}
+
+
+

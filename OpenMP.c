@@ -26,3 +26,50 @@ void generateSquare(complex_t *signal, int numOfSamples) {
 		in[n].im = 0;
 	}
 }
+int main(int argc, char* argv[])
+{
+	char cpuStr[49];				// CPU identification string
+	int numOfThreads, n;
+	double time, temp_time;
+	int size = MIN_SIZE >> 1;
+	FILE *file;
+
+
+	/* Generate square signal */
+	generateSquare(in, MAX_SIZE);
+
+	/* Get CPU information */
+	getCpuName(cpuStr);
+	printf("\nCPU name:                %s", cpuStr);
+	printf("\nCPU frequency:           %.2f GHz", (double)getCpuFrequency()/1000000.0);
+	printf("\nNumber of cores:         %d", omp_get_num_procs());
+
+#if 1
+	fopen_s(&file, "d:/test.csv", "w");
+
+	do {
+		size <<= 1;
+		printf("\n\nLength of input signal:  %d", size);
+
+		fprintf(file, "\nSize:;%d\nThreads:", size);
+		for (numOfThreads = 1; numOfThreads <= 2*omp_get_num_procs(); numOfThreads++) {
+			fprintf(file, ";%d", numOfThreads);
+		}
+#if 1
+		fprintf(file,"\nDFT:");
+		printf("\n\nDFT:");
+		for (numOfThreads = 1; numOfThreads <= 2*omp_get_num_procs(); numOfThreads++) {
+			omp_set_num_threads(numOfThreads);
+			time = DBL_MAX;
+			for (n = 0; n < REPEAT; n++) {
+				startMeasure();
+				dft(in, out, size);
+				temp_time = getMeasuredTime();
+				if (temp_time < time) {
+					time = temp_time;
+				}
+			}
+			printf("\nNumber of threads: %2d    Time: %.9f s", omp_get_max_threads(), time);
+			fprintf(file, ";%.9f", time);
+		}
+#endif

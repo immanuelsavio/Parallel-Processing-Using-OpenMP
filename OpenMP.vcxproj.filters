@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="benchmark">
+      <UniqueIdentifier>{3c99f9ff-de6b-44b7-9e75-87590ef7fab4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="benchmark.c">
+      <Filter>benchmark</Filter>
+    </ClCompile>
+    <ClCompile Include="OpenMP.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="benchmark.h">
+      <Filter>benchmark</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

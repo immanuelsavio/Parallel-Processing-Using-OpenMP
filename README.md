@@ -13,4 +13,4 @@ The programs have been written in Microsoft Visual Studio and have used certain 
 
 For convinence the programs have been made into header files and then included into a parent program ```OpenMP.c``` All you have to do is to donwload the [OpenMP](https://www.openmp.org/resources/openmp-compilers-tools/) library and then run the program. If you want to run the program in another IDLE or in windows then you must remove the Visual Studio codes which comes in ```Windows.h``` and run it with ```gcc <filename> -fopenmp```.
 
-Please leave a Star if you liked it. Please fork it and experiment. happy Open Sourcing!!!!
+Please leave a Star if you liked it. Please fork it and experiment. Happy Open Sourcing!!!!
